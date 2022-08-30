@@ -1,1 +1,20 @@
-<p>logininstitute works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <h1>Login Istituto</h1>
+
+      <!-- username -->
+      <div class="form-group mb-3">
+        <label for="exampleusername">Username</label>
+        <input type="text" class="form-control" formControlName="username" id="exampleusername" placeholder="Username">
+      </div>
+      <!-- password -->
+      <div class="form-group mb-3">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+
+      <button type="submit"  [disabled]="!form.valid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
