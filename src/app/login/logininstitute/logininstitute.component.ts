@@ -1,5 +1,5 @@
-import { LoginInstituteService } from './../service/login-institute.service';
-import { Login } from './../model/login';
+import { LoginInstituteService } from '../../service/login-institute.service';
+import { Login } from '../../model/login';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
