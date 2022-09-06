@@ -14,6 +14,7 @@ import { HeaderComponentComponent } from './homepageInstitute/header-component/h
 import { MainComponentComponent } from './homepageInstitute/main-component/main-component.component';
 import { FooterComponentComponent } from './homepageInstitute/footer-component/footer-component.component';
 import { HomeInstituteComponentComponent } from './homepageInstitute/home-institute/home-institute-component.component';
+import { ClassComponent } from './homepageInstitute/class/class.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeInstituteComponentComponent } from './homepageInstitute/home-instit
     HeaderComponentComponent,
     MainComponentComponent,
     FooterComponentComponent,
-    HomeInstituteComponentComponent
+    HomeInstituteComponentComponent,
+    ClassComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GetClassResponse } from 'src/app/model/classes/getClassResponse';
+import { ClassService } from 'src/app/service/classe.service';
 
 @Component({
   selector: 'app-main-component',
@@ -6,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-component.component.css']
 })
 export class MainComponentComponent implements OnInit {
+  classes: GetClassResponse[] = [];
+  constructor(private classService: ClassService) { }
 
-  constructor() { }
+  getAllClasses() {
+    this.classService.getAllClass().subscribe(
+      (data: any) => {
+        let className = data.classes;
+        console.log(className);
+        className.forEach((element: GetClassResponse) => {
+          console.log(element);
+          this.classes.push(element);
+        });
+      },
+      (this.classService.handleError) 
+  )}
 
   ngOnInit(): void {
+    this.getAllClasses();
   }
 
 }
