@@ -29,7 +29,17 @@ export class LogininstituteComponent implements OnInit {
         username: this.form.get('username')?.value,
         password: this.form.get('password')?.value,
       }
-      this.loginInstituteService.logInstitute(login).subscribe
+      console.log(login);
+
+      this.loginInstituteService.logInstitute(login)
+      .subscribe(
+        res => {
+          console.log(res);
+      },
+        err => {
+          console.log(err);
+        }
+      )
     }
   }
 
