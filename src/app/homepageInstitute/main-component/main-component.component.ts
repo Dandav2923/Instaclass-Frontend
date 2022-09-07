@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetClassResponse } from 'src/app/model/classes/getClassResponse';
-import { ClassService } from 'src/app/service/classe.service';
+import { ClassService } from 'src/app/service/classService/classe.service';
 
 @Component({
   selector: 'app-main-component',
@@ -9,7 +9,9 @@ import { ClassService } from 'src/app/service/classe.service';
 })
 export class MainComponentComponent implements OnInit {
   classes: GetClassResponse[] = [];
+
   constructor(private classService: ClassService) { }
+
   getAllClasses() {
     this.classService.getAllClass().subscribe(
       (data: any) => {
@@ -21,7 +23,9 @@ export class MainComponentComponent implements OnInit {
         });
       },
       (this.classService.handleError) 
-  )}
+    )
+  }
+  
   ngOnInit(): void {
     this.getAllClasses();
   }

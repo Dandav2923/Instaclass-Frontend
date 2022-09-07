@@ -10,6 +10,15 @@
             <button class="btn btn-primary btn-lg" type="button">Example button</button>
         </div>
     </div>
-    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of classes">
+                <h2>{{item.name}}</h2>
+                <p>
+                    <a class="btn btn-secondary" href="#">View details &raquo;</a>
+                </p>
+            </div>
+        </div>
+    </div>
 </main>
 
