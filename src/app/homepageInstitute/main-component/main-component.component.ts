@@ -10,11 +10,10 @@ import { ClassService } from 'src/app/service/classe.service';
 export class MainComponentComponent implements OnInit {
   classes: GetClassResponse[] = [];
   constructor(private classService: ClassService) { }
-
   getAllClasses() {
     this.classService.getAllClass().subscribe(
       (data: any) => {
-        let className = data.classes;
+        let className = data;
         console.log(className);
         className.forEach((element: GetClassResponse) => {
           console.log(element);
@@ -23,9 +22,7 @@ export class MainComponentComponent implements OnInit {
       },
       (this.classService.handleError) 
   )}
-
   ngOnInit(): void {
     this.getAllClasses();
   }
-
 }
