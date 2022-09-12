@@ -1,13 +1,12 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
-export class ClassNoteService{
+export class PresenceService {
     constructor(private http: HttpClient) { }
-    
     handleError(error: HttpErrorResponse) {
         if (error.status === 0) {
             console.error('An error occurred:', error.error);
@@ -17,15 +16,14 @@ export class ClassNoteService{
         }
         return throwError(() => new Error('Something bad happened; please try again later.'));
     }
-
-    getAllClassNotes(idClass: number) {
+    getAllPresencesByIdClass(idClass: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/classNotes/getAllClassNotes/${idClass}`
+            `http://192.168.178.100:9191/class/v1/presences/getAllPresences/${idClass}`
         )
     }
-    getAllClassNotesByTeacher(idTeacher: number) {
+    getAllPresencesByIdStudent(idClass: number, idStudent: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/classNotes/getAllClassNotes/1/${idTeacher}`
+            `http://192.168.178.100:9191/class/v1/presences/getAllPresences/${idClass}/${idStudent}`
         )
     }
 }
