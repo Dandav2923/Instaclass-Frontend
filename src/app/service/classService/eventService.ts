@@ -18,7 +18,7 @@ export class EventService {
     }
     getAllEventByIdClass(idClass: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/events/getAllEvent/${idClass}`
+            `http://192.168.178.100:9191/class/v1/events/getAllEvents/${idClass}`
         )
     }
 }

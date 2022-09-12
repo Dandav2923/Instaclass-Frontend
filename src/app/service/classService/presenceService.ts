@@ -23,7 +23,7 @@ export class PresenceService {
     }
     getAllPresencesByIdStudent(idClass: number, idStudent: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/presences/getAllPresences/${idClass}/${idStudent}`
+            `http://192.168.178.100:9191/class/v1/presences/getAllPresencesByStudent/${idClass}/${idStudent}`
         )
     }
 }

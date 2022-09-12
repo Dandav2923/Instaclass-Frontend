@@ -18,17 +18,17 @@ export class VoteService {
     }
     getAllVote(idClass: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/votes/getAllVotes/${idClass}`
+            `http://192.168.178.100:9191/class/v1/votes/getAllVoteClass/${idClass}`
         )
     }
-    getAllVoteByIdStudent(idClass: number, idStudent: number) {
+    getAllVoteByIdStudent(idStudent: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/votes/getAllVotes/${idClass}/${idStudent}`
+            `http://192.168.178.100:9191/class/v1/votes/getAllVoteStudent/${idStudent}`
         )
     }
-    getAllVoteByIdTeacher(idClass: number, idTeacher: number) {
+    getAllVoteByIdTeacher(idTeacher: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/votes/getAllVotes/${idClass}/${idTeacher}`
+            `http://192.168.178.100:9191/class/v1/votes/getAllVoteTeacher/${idTeacher}`
         )
     }
 }

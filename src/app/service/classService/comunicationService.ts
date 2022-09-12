@@ -18,7 +18,7 @@ export class CommunicationService {
     }
     getAllCommunicationByIdClass(idClass: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/communications/getAllCommunication/${idClass}`
+            `http://192.168.178.100:9191/class/v1/communications/getAllCommunications/${idClass}`
         )
     }
 }

@@ -13,9 +13,118 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4" *ngFor="let item of classes">
-                <h2>{{item.name}}</h2>
+                <h2>Il nome della classe &egrave;: {{item.name}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of classNotes">
+                <h2>Note di classe</h2>
                 <p>
-                    <a class="btn btn-secondary" href="#">View details &raquo;</a>
+                    Nota: {{item.note}}, in data {{item.date}} scritta dal docente: {{item.teacherName}}, {{item.teacherSurname}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of classStudents">
+                <h2>Elenco studenti della classe</h2>
+                <p>
+                    {{item.name}} {{item.surname}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of classTeachers">
+                <h2>Elenco docenti della classe</h2>
+                <p>
+                    {{item.teacherName}} {{item.teacherSurname}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of communications">
+                <h2>Comunicazioni della classe</h2>
+                <p>
+                    {{item.communication}} in data:{{item.date}}, scritta dal docente: {{item.teacherName}} {{item.teacherSurname}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of events">
+                <h2>Eventi della classe</h2>
+                <p>
+                    {{item.name}}, in data: {{item.date}}, {{item.description}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of homeworks">
+                <h2>Compiti assegnati alla classe</h2>
+                <p>
+                    {{item.assignment}}, in data: {{item.date}}, per la materia di {{item.subjectName}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of presences">
+                <h2>Presenze nella classe</h2>
+                <p>
+                    in data: {{item.date}}, lo studente: {{item.name}} {{item.surname}}, &egrave; presente: {{item.present}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of presencesByStudent">
+                <h2>Elenco presenze per lo studente:{{item.name}} {{item.surname}}</h2>
+                <p>
+                    {{item.present}} in data: {{item.date}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of studentNotes">
+                <h2>Elenco note studente</h2>
+                <p>
+                    Lo studente: {{item.nameStudent}} {{item.surnameStudent}}, ha preso la nota: {{item.note}} in  data: {{item.date}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of studentNotesByStudent">
+                <h2>Lo studente:{{item.nameStudent}} {{item.surnameStudent}}</h2>
+                <p>
+                    Durante l'anno ha preso le seguenti note: {{item.note}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of studentNotesByTeacher">
+                <h2>Il docente: {{item.teacherName}} {{item.teacherSurname}}</h2>
+                <p>
+                    Durante l'anno ha scritto le seguenti note: {{item.note}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of votes">
+                <h2>Voti della classe: {{item.classId}}</h2>
+                <p>
+                    Lo studente:{{item.surnameStudent}} ha preso:{{item.vote}} in {{item.subject}} il {{item.date}} con il docente {{item.teacherSurname}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of votesByStudent">
+                <h2>Voti dello studente {{item.surnameStudent}}</h2>
+                <p>
+                    punteggio: {{item.vote}}, data: {{item.date}}, materia: {{item.subject}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4" *ngFor="let item of votesByTeacher">
+                <h2>Voti assegnati dal docente {{item.teacherSurname}}</h2>
+                <p>
+                    punteggio: {{item.vote}}, data: {{item.date}}, materia: {{item.subject}}
                 </p>
             </div>
         </div>

@@ -18,7 +18,7 @@ export class ClassStudentService {
     }
     getAllStudentByIdClass(idClass: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/classStudent/${idClass}`
+            `http://192.168.178.100:9191/class/v1/classStudents/${idClass}`
         )
     }
 }

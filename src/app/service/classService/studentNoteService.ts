@@ -23,12 +23,12 @@ export class StudentNoteService {
     }
     getAllStudentNoteByIdStudent(idClass: number, idStudent: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/studentNotes/getAllStudentNotes/${idClass}/${idStudent}`
+            `http://192.168.178.100:9191/class/v1/studentNotes/getAllNotesByStudent/${idClass}/${idStudent}`
         )
     }
     getAllStudentNoteByIdTeacher(idClass: number, idTeacher: number) {
         return this.http.get(
-            `http://192.168.178.100:9191/class/v1/studentNotes/getAllStudentNotes/${idClass}/${idTeacher}`
+            `http://192.168.178.100:9191/class/v1/studentNotes/getAllNotesByTeacher/${idClass}/${idTeacher}`
         )
     }
 }
