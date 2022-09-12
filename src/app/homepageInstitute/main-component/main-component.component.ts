@@ -17,12 +17,6 @@ export class MainComponentComponent implements OnInit {
   ) {
 };
 
-<<<<<<< HEAD
-  constructor(private classService: ClassService) { }
-
-  getAllClasses() {
-    this.classService.getAllClass(1).subscribe(
-=======
 getAllClasses() {
   this.classService.getAllClass(1).subscribe(
     (data: any) => {
@@ -38,7 +32,6 @@ getAllClasses() {
   };
   getAllClassNotes() {
     this.classNoteService.getAllClassNotes(1).subscribe(
->>>>>>> be606932f304d14a7480a32e370f220375eaaa9c
       (data: any) => {
         let classNoteInfo = data;
         console.log(classNoteInfo);
@@ -47,20 +40,11 @@ getAllClasses() {
           this.classNotes.push(element);
         })
       },
-<<<<<<< HEAD
-      (this.classService.handleError)
-    )
-  }
-
-  ngOnInit(): void {
-    this.getAllClasses();
-=======
       (this.classNoteService.handleError)
     )
   }
 ngOnInit(): void {
   this.getAllClasses();
   this.getAllClassNotes();
->>>>>>> be606932f304d14a7480a32e370f220375eaaa9c
   }
 }
