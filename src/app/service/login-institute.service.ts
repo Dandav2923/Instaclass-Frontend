@@ -9,6 +9,7 @@ export class LoginInstituteService {
 
   constructor(private http: HttpClient) { }
 
+
   logInstitute(login:Login) {
     return this.http.post("http://localhost:9191/institute/v1/institutes/loginInstitute",login)
   }

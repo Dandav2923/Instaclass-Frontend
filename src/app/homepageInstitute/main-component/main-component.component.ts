@@ -13,7 +13,7 @@ export class MainComponentComponent implements OnInit {
   constructor(private classService: ClassService) { }
 
   getAllClasses() {
-    this.classService.getAllClass().subscribe(
+    this.classService.getAllClass(1).subscribe(
       (data: any) => {
         let className = data;
         console.log(className);
@@ -22,10 +22,10 @@ export class MainComponentComponent implements OnInit {
           this.classes.push(element);
         });
       },
-      (this.classService.handleError) 
+      (this.classService.handleError)
     )
   }
-  
+
   ngOnInit(): void {
     this.getAllClasses();
   }
