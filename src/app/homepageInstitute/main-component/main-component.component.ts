@@ -9,6 +9,8 @@ import { GetHomeworkResponse } from 'src/app/model/classes/getHomeworkResponse';
 import { GetPresenceResponse } from 'src/app/model/classes/getPresenceResponse';
 import { GetStudentNoteResponse } from 'src/app/model/classes/getStudentNoteResponse';
 import { GetVoteResponse } from 'src/app/model/classes/getVoteResponse';
+import { GetInstituteResponse } from 'src/app/model/institute/getInstituteResponse';
+import { GetLoginInstituteResponse } from 'src/app/model/institute/getLoginInstituteResponse';
 import { ClassService } from 'src/app/service/classService/classe.service';
 import { ClassNoteService } from 'src/app/service/classService/classNoteService';
 import { ClassStudentService } from 'src/app/service/classService/classStudentService';
@@ -19,6 +21,8 @@ import { HomeworkService } from 'src/app/service/classService/homeworkService';
 import { PresenceService } from 'src/app/service/classService/presenceService';
 import { StudentNoteService } from 'src/app/service/classService/studentNoteService';
 import { VoteService } from 'src/app/service/classService/voteService';
+import { InstituteService } from 'src/app/service/instituteService/instituteService';
+import { LoginInstituteService } from 'src/app/service/login-institute.service';
 @Component({
   selector: 'app-main-component',
   templateUrl: './main-component.component.html',
@@ -40,6 +44,9 @@ export class MainComponentComponent implements OnInit {
   votes: GetVoteResponse[] = [];
   votesByStudent: GetVoteResponse[] = [];
   votesByTeacher: GetVoteResponse[] = [];
+  instituteToken: GetLoginInstituteResponse[] = [];
+  instituteInfo: GetInstituteResponse[] = [];
+  instituteId: number = 0;
   constructor(
     private classService: ClassService,
     private classNoteService: ClassNoteService,
@@ -50,12 +57,25 @@ export class MainComponentComponent implements OnInit {
     private homeworkService: HomeworkService,
     private presenceService: PresenceService,
     private studentNoteService: StudentNoteService,
-    private voteService: VoteService
+    private voteService: VoteService,
+    private loginInstituteService: LoginInstituteService,
+    private instituteService: InstituteService,
   ) {
-};
+  };
+  getInstituteInformation(){
+    this.instituteService.getInstituteUsername(this.loginInstituteService.usernameInstitute).subscribe(
+      (data: any) => {
+        this.instituteInfo = data;
+        this.instituteInfo.forEach((element: GetInstituteResponse) => {
+          this.instituteId = element.id;
+        })
+      },
+      (this.classService.handleError)
+    )
+  }
 
 getAllClasses() {
-  this.classService.getAllClass(1).subscribe(
+  this.classService.getAllClass(this.instituteId).subscribe(
     (data: any) => {
       let className = data;
       console.log(className);

@@ -8,7 +8,7 @@ import { Login } from '../model/login';
 export class LoginInstituteService {
 
   constructor(private http: HttpClient) { }
-
+  usernameInstitute: string = "";
 
   logInstitute(login:Login) {
     return this.http.post("http://localhost:9191/institute/v1/institutes/loginInstitute",login)

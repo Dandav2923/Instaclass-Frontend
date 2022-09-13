@@ -33,8 +33,9 @@ export class LogininstituteComponent implements OnInit {
 
       this.loginInstituteService.logInstitute(login)
       .subscribe(
-        res => {
-          console.log(res);
+        (res: any) => {
+          this.loginInstituteService.usernameInstitute = res.username;
+          console.log(res.username);
       },
         err => {
           console.log(err);
@@ -42,5 +43,4 @@ export class LogininstituteComponent implements OnInit {
       )
     }
   }
-
 }
